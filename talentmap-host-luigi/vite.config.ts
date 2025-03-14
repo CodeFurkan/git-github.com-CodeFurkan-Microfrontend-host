@@ -8,13 +8,13 @@ export default defineConfig({
 	server: {
 		port: 5173,
 		strictPort: true,
-		cors: {
-			origin: "http://localhost:3001/talent-view.js",
-			methods: ["GET", "POST", "OPTIONS"],
-		},
-		headers: {
-			"Access-Control-Allow-Origin": "http://localhost:3001/talent-view.js",
-			"Access-Control-Allow-Headers": "http://localhost:3001/talent-view.js",
-		},
+		cors: true,
+		// origin: "http://localhost:3001/talent-view.js",
+		// methods: ["GET", "POST", "OPTIONS"],
+		// },
+		// headers: {
+		// 	"Access-Control-Allow-Origin": "http://localhost:3001/talent-view.js",
+		// 	"Access-Control-Allow-Headers": "http://localhost:3001/talent-view.js",
+		// },
 	},
 });

@@ -1,37 +1,22 @@
 import "@luigi-project/core";
 import "@luigi-project/core/luigi.css";
-import "@luigi-project/client"; // ✅ Luigi Client importieren
+import "@luigi-project/client";
+import { addInitListener } from "@luigi-project/client";
 import { useEffect } from "react";
 
 function App() {
-	Luigi.setConfig({
-		navigation: {
-			validWebcomponentUrls: [".*?"],
-			nodes: [
-				{
-					pathSegment: "test",
-					label: "test",
-					children: [
-						{
-							pathSegment: "Talents",
-							label: "Talents",
-							icon: "home",
-							viewUrl: "http://localhost:3001/talent-view.js",
-							webcomponent: true,
-						},
-					],
-				},
-			],
-		},
-		routing: {
-			useHashRouting: false,
-		},
-		settings: {
-			hideNavigation: false,
-		},
-	});
+	useEffect(() => {
+		addInitListener(() => {
+			console.log("Luigi Client initialized.");
+		});
+	}, []);
 
-	return <div id="luigi-container" />;
+	return (
+		<div>
+			<div id="luigi-container" />
+			{/* <p>Luigi läuft...</p> */}
+		</div>
+	);
 }
 
 export default App;
